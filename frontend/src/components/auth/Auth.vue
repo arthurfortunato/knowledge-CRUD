@@ -1,7 +1,7 @@
 <template>
   <div class="auth-content">
     <div class="auth-modal">
-      <img src="@/assets/logo.png" width="400" alt="Logo" />
+      <img src="@/assets/logo.png" width="200" alt="Logo" />
       <hr>
       <div class="auth-title">{{ showSignup ? "Cadastro" : "Login" }}</div>
       <input v-if="showSignup" v-model="user.name" type="text" placeholder="Nome">
@@ -17,13 +17,12 @@
         <span class="span2" v-else>Não tem cadastro? Registre-se aqui!</span>
       </a>
     </div>
-  </div>
+  </div> 
 </template>
 
 <script>
 import { baseApiUrl, showError, userKey } from "@/global";
 import axios from "axios";
-
 
 export default {
   name: "Auth",
@@ -59,17 +58,17 @@ export default {
 </script>
 
 <style>
+
 .auth-content {
-  grid-area: auth;
-  height: 100%;
   display: flex;
+  height: 100% ;
   justify-content: center;
   align-items: center;
-  background: #008f8f;
+  background: #F3F2F7;
 }
 
 .auth-modal {
-  background-color: #008f8f;
+  background-color: #F3F2F7;
   width: 350px;
   padding: 35px;
 
@@ -83,7 +82,7 @@ export default {
   font-weight: 100;
   margin-top: 10px;
   margin-bottom: 15px;
-  color: #FFF;
+  color: #24292D;
 }
 
 .auth-modal input {
@@ -96,12 +95,12 @@ export default {
 
 .auth-modal button {
 
-  background-color: rgb(212, 26, 26);
+  background-color: rgb(196, 36, 36);
   color: #FFF;
   padding: 5px 15px;
   border-radius: 20px;
   text-decoration: none;
-  outline: none !important;
+  outline: none;
 }
 
 .auth-modal a {
@@ -116,15 +115,11 @@ export default {
 }
 
 .span {
-  color: #FFF;
+  color: #24292D;
   font-size: 1.2rem;
-  text-decoration: none;
-  outline: none;
 }
 .span2 {
-  color: #FFF;
+  color: #24292D;
   font-size: 1.11rem;
-  text-decoration: none;
-  outline: none;
 }
 </style>

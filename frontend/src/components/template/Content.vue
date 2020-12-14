@@ -11,11 +11,12 @@ export default {
 </script>
 
 <style>
-  .content {
+.content {
     grid-area: content;
     background-color: #F3F2F7;
     padding: 20px;
     color: #000;
   }
+
 
 </style>

@@ -4,7 +4,9 @@
       <i class="fa fa-lg" :class="icon"></i> <!-- fonte  -->
   </a>
   <h1 class="title">
-    <router-link to="/">{{ title }}</router-link>
+    <router-link to="/">
+    {{title}} 
+    </router-link>
   </h1>
   <UserDropDown v-if="!hideUserDropDown" />
   </header>
@@ -17,14 +19,14 @@ export default {
   name: 'Header',
   components: { UserDropDown },
   props: {
-    title: String, 
+    title: String,
     hideToggle: Boolean,
-    hideUserDropDown: Boolean
+    hideUserDropDown: Boolean,
   },
-  computed: {
-    icon() {
-      return this.$store.state.isMenuVisible ? "fa-angle-left" : "fa-angle-down"
-    }
+  computed: { 
+        icon() {
+          return this.$store.state.isMenuVisible ? "fa-angle-left" : "fa-angle-down"
+        }
   },
   methods: {
     toggleMenu() {
@@ -32,6 +34,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style>
@@ -44,22 +47,28 @@ export default {
     align-items: center;
   }
 
-  .title {
-    font-size: 1.2rem;
-    font-weight: 100;
-    flex-grow: 1;
-    text-align: center;
+  .header img {
+    width: 250px;
+    height: 150%;
   }
+
+ .title {
+        font-size: 1.2rem;
+        color: #000000;
+        font-weight: 100;
+        flex-grow: 1;
+        text-align: center;
+    }
 
   .title a {
-    color: #24292D;
-    text-decoration: none;
-  }
+        color: #000000;
+        text-decoration: none;
+    }
 
-    .title a:hover {
-    color: #000;
-    text-decoration: none;
-  }
+  .title a:hover {
+        color: #504b4b;
+        text-decoration: none;
+    }
 
   header.header > a.toggle {
     width: 60px;
@@ -71,6 +80,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.5s;
   }
 
   header.header > a.toggle:hover {

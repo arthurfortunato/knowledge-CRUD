@@ -20,10 +20,22 @@ export default {
       article: {}
     }
   },
+
+  methods: {
+    loadArticle(article, mode = "save") {
+      this.mode = mode;
+      /*  this.article = { ...article }; */
+      axios
+        .get(`${baseApiUrl}/articles/${article.id}`)
+        .then((res) => (this.article = res.data));
+    },
+  },
+
   mounted() {
     const url = `${baseApiUrl}/articles/${this.$route.params.id}`
     axios.get(url).then(res => this.article = res.data)
   },
+
   updated() {
     document.querySelectorAll('.article-content pre.ql-syntax').forEach(e => {
       hljs.highlightBlock(e)
@@ -34,6 +46,7 @@ export default {
 </script>
 
 <style>
+
 .article-content {
   background-color: #FFF;
   border-radius: 8px;
@@ -49,7 +62,7 @@ export default {
 }
 
 .article-content img {
-  max-width: 100%;
+  width: 10000px;
 }
 
 .article-content :last-child {

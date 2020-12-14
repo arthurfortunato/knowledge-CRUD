@@ -55,10 +55,10 @@
 
     <b-table hover striped :items="users" :fields="fields">
       <template slot="cell(actions)" slot-scope="data">
-        <b-button variant="warning" @click="loadUser(data.item)" class="ml-2">
+        <b-button variant="warning" @click="loadUser(data.item)" class="ml-2" pill>
           <i class="fa fa-pencil"></i>
         </b-button>
-        <b-button variant="danger" @click="loadUser(data.item, 'remove')" class="ml-2">
+        <b-button variant="danger" @click="loadUser(data.item, 'remove')" class="ml-2" pill>
           <i class="fa fa-trash"></i>
         </b-button>
       </template>

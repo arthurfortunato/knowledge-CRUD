@@ -8,7 +8,7 @@
       <i class="fa fa-angle-down"></i>
     </div>
     <div class="user-dropdown-content">
-      <router-link to="/admin" v-if="user.admin">
+      <router-link to="/admin" v-if="user.admin"> 
         <i class="fa fa-cogs"></i> Administração
       </router-link>
       <a href @click.prevent="logout"><i class="fa fa-sign-out"></i> Sair</a>
@@ -37,6 +37,8 @@ export default {
 .user-dropdown {
   position: relative;
   height: 100%;
+
+  transition: 1s ease all;
 }
 
 .user-button {
@@ -65,7 +67,7 @@ export default {
   position: absolute;
   right: 0px;
   background-color: #f9f9f9;
-  min-width: 170px;
+  width: 100%;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 10px;
   z-index: 1;
@@ -87,6 +89,7 @@ export default {
   text-decoration: none;
   color: #1D1D26;
   padding: 10px;
+  transition: 0.5s;
 }
 
 .user-dropdown-content a:hover {

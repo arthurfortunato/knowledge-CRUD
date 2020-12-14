@@ -80,16 +80,14 @@
     <hr />
     <b-table hover striped :items="articles" :fields="fields">
       <template slot="cell(actions)" slot-scope="data">
-        <b-button
-          variant="warning"
-          @click="loadArticle(data.item)"
-          class="ml-2"
-        >
+        <div class="actions">
+        <b-button variant="warning" class="edit" @click="loadArticle(data.item), backToTop()" pill>
           <i class="fa fa-pencil"></i>
         </b-button>
-        <b-button variant="danger" @click="loadArticle(data.item, 'remove')" class="ml-2">
+        <b-button variant="danger" @click="loadArticle(data.item, 'remove'), backToTop()" pill>
           <i class="fa fa-trash"></i>
         </b-button>
+        </div>
       </template>
     </b-table>
     <b-pagination
@@ -186,6 +184,9 @@ export default {
         });
       });
     },
+    backToTop(){
+      window.scrollTo(0, 0)
+    }
   },
   watch: {
     page() {
@@ -201,5 +202,13 @@ export default {
 </script>
 
 <style>
+.actions {
+  display: flex;
+  padding: 10px; 
+}
+
+.edit {
+  margin-right: 10px;
+}
 
 </style>

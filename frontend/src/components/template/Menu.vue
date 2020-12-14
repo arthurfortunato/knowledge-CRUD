@@ -1,5 +1,8 @@
 <template>
   <aside class="menu" v-show="isMenuVisible">
+  <a href="/">
+  <img src="../../assets/home.png" alt="Home">
+  </a>
     <div class="menu-filter">
       <i class="fa fa-search fa-lg"></i>
       <input type="text" placeholder="Digite para filtrar..."
@@ -8,7 +11,7 @@
     <Tree :data="treeData" :options="treeOptions" :filter="treeFilter" ref="tree" />
   </aside>
 </template>
-
+ 
 <script>
 import { mapState } from 'vuex'
 import Tree from 'liquor-tree'
@@ -55,24 +58,34 @@ export default {
 
 .menu {
   grid-area: menu;
- /*  background: linear-gradient(#901B41, #a0526b 60%); */
- background: #24292D;
+  background: #24292D;
 
   display: flex;
   flex-direction: column;
 }
 
+.menu a {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+
+.menu img {
+  height: 60px;
+  width: 35%;
+}
+
 .tree-node.selected {
   background-color: #17171E;
 }
+
 .menu .tree-node.selected > .tree-content,
 .menu .tree-node .tree-content:hover {
   background-color: #17171E;
-
 }
 
 .tree-arrow.has-child {
-  filter: brightness(4);
+  filter: brightness(2);
 }
 
 .menu .menu-filter {
@@ -92,7 +105,7 @@ export default {
 
 .menu input {
   color: #CCC;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   border: 0;
   outline: 0;
   width: 100%;
@@ -102,7 +115,7 @@ export default {
 .tree-filter-empty {
   color: #CCC;
   margin-left: 20px;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 .menu span,
@@ -111,9 +124,13 @@ export default {
     text-decoration: none;
 }
 
-.menu .tree-node:not(.selected) > .tree-content:hover {
-    background-color: #242530;
+div.tree {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-
+.menu .tree-node:not(.selected) > .tree-content:hover {
+    background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100%);
+}
 </style>

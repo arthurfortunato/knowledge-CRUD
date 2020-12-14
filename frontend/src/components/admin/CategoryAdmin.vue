@@ -32,10 +32,10 @@
     <hr>
     <b-table hover striped :items="categories" :fields="fields">
       <template slot="cell(actions)" slot-scope="data">
-        <b-button variant="warning" @click="loadCategory(data.item)" class="mr-2">
+        <b-button variant="warning" @click="loadCategory(data.item)" class="mr-2" pill>
           <i class="fa fa-pencil"></i>
         </b-button>
-        <b-button variant="danger" @click="loadCategory(data.item, 'remove')">
+        <b-button variant="danger" @click="loadCategory(data.item, 'remove')" pill>
           <i class="fa fa-trash"></i>
         </b-button>
       </template>

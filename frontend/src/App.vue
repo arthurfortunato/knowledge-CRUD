@@ -1,6 +1,6 @@
 <template>
-  <div id="app" :class="{ 'hide-menu': !isMenuVisible }">
-    <Header title="Knowledge" v-if="user" :hideToggle="!user" :hideUserDropDown="!user" />
+  <div id="app" :class="{ 'hide-menu': !isMenuVisible, 'auth': !user}">
+    <Header title="" v-if="user" :hideToggle="!user" :hideUserDropDown="!user" />
     <Menu  v-if="user" />
     <Loading v-if="validatingToken" />
     <Content v-else/>
@@ -20,7 +20,7 @@ import Loading from "./components/template/Loading";
 
 export default {
   name: "App",
-  components: { Header, Menu, Content, Footer, Loading },
+  components: { Header, Menu, Content, Footer, Loading},
   computed: mapState(["isMenuVisible", "user"]),
   data: function () {
     return {
@@ -78,7 +78,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: 60px 1fr 40px;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 250px 1fr;
   grid-template-areas:
     "menu header"
     "menu content"
@@ -88,6 +88,13 @@ body {
 #app.hide-menu {
   grid-template-areas:
     "header header"
+    "content content"
+    "footer footer";
+}
+
+#app.auth {
+   grid-template-areas:
+    "content content"
     "content content"
     "footer footer";
 }
